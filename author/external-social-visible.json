@@ -1,0 +1,15 @@
+{
+  "author": {
+    "auth": {
+      "id": "21893511524a9d3ad01db9b1259ab834",
+      "provider": "google",
+      "scheme": "external"
+    },
+    "contactPoint": {
+      "email": "example@example.com",
+      "name": "Alice Liddell",
+      "url": "https://plus.google.com/101230708353050722477"
+    },
+    "name": "Alice Liddell"
+  }
+}

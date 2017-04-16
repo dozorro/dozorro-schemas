@@ -1,0 +1,72 @@
+{
+  "title": "Abuse report tender201",
+  "additionalProperties": false,
+  "properties": {
+    "author": {
+      "$ref": "#/definitions/author",
+      "description": "author schema described in comment model"
+    },
+    "formData": {
+      "additionalProperties": false,
+      "form": [
+        {
+          "title": "Report on the possible violation",
+          "title_ru": "Отчет о найденом нарушении",
+          "title_uk": "Звіт про знайдене порушення",
+          "type": "title"
+        },
+        {
+          "key": "abuseCode",
+          "type": "hidden"
+        },
+        {
+          "key": "abuseName",
+          "title": "Violation",
+          "title_ru": "Найденое нарушение",
+          "title_uk": "Знайдене порушення",
+          "type": "select"
+        },
+        {
+          "key": "abuseComment",
+          "title": "Your commentary",
+          "title_ru": "Ваш комментарий",
+          "title_uk": "Ваш коментар",
+          "type": "textarea"
+        }
+      ],
+      "properties": {
+        "abuseCode": {
+          "description": "Abuse message code A001-A999",
+          "pattern": "^A[0-9]{3}$",
+          "type": "string"
+        },
+        "abuseComment": {
+          "maxLength": 10000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "abuseName": {
+          "maxLength": 100,
+          "minLength": 4,
+          "type": "string"
+        }
+      },
+      "required": [
+        "abuseCode",
+        "abuseName"
+      ],
+      "type": "object"
+    },
+    "tender": {
+      "pattern": "^[0-9a-f]{32}$",
+      "reference": "tender",
+      "type": "string"
+    }
+  },
+  "required": [
+    "author",
+    "tender",
+    "formData"
+  ],
+  "type": "object"
+}

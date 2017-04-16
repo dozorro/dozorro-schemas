@@ -1,0 +1,79 @@
+{
+  "title": "Actions report tender202",
+  "additionalProperties": false,
+  "properties": {
+    "author": {
+      "$ref": "#/definitions/author",
+      "description": "author schema described in comment model"
+    },
+    "formData": {
+      "additionalProperties": false,
+      "form": [
+        {
+          "title": "Report on the held actions",
+          "title_ru": "Отчет о действиях",
+          "title_uk": "Звіт про вчинені дії",
+          "type": "title"
+        },
+        {
+          "key": "actionCode",
+          "type": "hidden"
+        },
+        {
+          "key": "actionName",
+          "title": "Held actions",
+          "title_ru": "Действия",
+          "title_uk": "Вчинена дія",
+          "type": "select"
+        },
+        {
+          "key": "actionComment",
+          "title": "Your commentary",
+          "title_ru": "Ваш комментарий",
+          "title_uk": "Ваш коментар",
+          "type": "textarea"
+        }
+      ],
+      "properties": {
+        "actionCode": {
+          "description": "Action message code B001-B999",
+          "pattern": "^B[0-9]{3}$",
+          "type": "string"
+        },
+        "actionComment": {
+          "maxLength": 10000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "actionName": {
+          "maxLength": 100,
+          "minLength": 4,
+          "type": "string"
+        }
+      },
+      "required": [
+        "actionCode",
+        "actionName"
+      ],
+      "type": "object"
+    },
+    "parentForm": {
+      "reference": "form",
+      "referenceSchema": "tender201",
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "tender": {
+      "pattern": "^[0-9a-f]{32}$",
+      "reference": "tender",
+      "type": "string"
+    }
+  },
+  "required": [
+    "author",
+    "tender",
+    "parentForm",
+    "formData"
+  ],
+  "type": "object"
+}

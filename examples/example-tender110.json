@@ -1,0 +1,21 @@
+{
+  "author": {
+    "auth": {
+      "id": "21893511524a9d3ad01db9b1259ab834",
+      "provider": "google",
+      "scheme": "external"
+    },
+    "name": "Alice Liddell"
+  },
+  "formData": {
+    "answeredInTime": "yes",
+    "answeredInTimeComment": "Відповіли вчасно",
+    "communicationMethod": "phone",
+    "communicationMethodComment": "Передзвонили швидко на мобільний",
+    "procuringQuestions": "yes",
+    "procuringQuestionsComment": "Так, довелось",
+    "supplierQuestions": "no",
+    "supplierQuestionsComment": "Ні, не питав"
+  },
+  "tender": "50d1d7be9ceb289caf0c21e56436c440"
+}

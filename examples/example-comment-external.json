@@ -1,0 +1,19 @@
+{
+  "author": {
+    "auth": {
+      "id": "21893511524a9d3ad01db9b1259ab834",
+      "provider": "google",
+      "scheme": "external"
+    },
+    "contactPoint": {
+      "email": "example@example.com",
+      "name": "Alice Liddell",
+      "url": "https://plus.google.com/101230708353050722477"
+    },
+    "name": "Alice Liddell"
+  },
+  "comment": "Це коментар з авторизацією через Google+ / Gmail",
+  "parentForm": "5b663963f5fe62c57027c8b318a16b91",
+  "replyTo": "9a1eaacdf5bbc20d77dd8ef4a1d99ac2",
+  "tender": "50d1d7be9ceb289caf0c21e56436c440"
+}

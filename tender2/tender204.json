@@ -1,0 +1,88 @@
+{
+  "title": "Archive reason tender204",
+  "additionalProperties": false,
+  "properties": {
+    "author": {
+      "$ref": "#/definitions/author",
+      "description": "author schema described in comment model"
+    },
+    "formData": {
+      "additionalProperties": false,
+      "form": [
+        {
+          "title": "Archiving",
+          "title_ru": "Архивирование",
+          "title_uk": "Архівування",
+          "type": "title"
+        },
+        {
+          "inline": true,
+          "key": "reason",
+          "title": "Reason",
+          "titleMap": {
+            "cancel": "Cancelling",
+            "defeat": "Failure",
+            "succes": "Success"
+          },
+          "titleMap_ru": {
+            "cancel": "Отмена (сдаюсь!)",
+            "defeat": "Поражение",
+            "succes": "Победа"
+          },
+          "titleMap_uk": {
+            "cancel": "Відміна (здатись)",
+            "defeat": "Поразка",
+            "succes": "Перемога"
+          },
+          "title_ru": "Причина",
+          "title_uk": "Причина",
+          "type": "radios"
+        },
+        {
+          "key": "reasonComment",
+          "title": "Your commentary",
+          "title_ru": "Ваш комментарий",
+          "title_uk": "Ваш коментар",
+          "type": "textarea"
+        }
+      ],
+      "properties": {
+        "reason": {
+          "enum": [
+            "succes",
+            "defeat",
+            "cancel"
+          ],
+          "type": "string"
+        },
+        "reasonComment": {
+          "maxLength": 10000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "reason"
+      ],
+      "type": "object"
+    },
+    "parentForm": {
+      "reference": "form",
+      "referenceSchema": "tender201",
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "tender": {
+      "pattern": "^[0-9a-f]{32}$",
+      "reference": "tender",
+      "type": "string"
+    }
+  },
+  "required": [
+    "author",
+    "tender",
+    "parentForm",
+    "formData"
+  ],
+  "type": "object"
+}

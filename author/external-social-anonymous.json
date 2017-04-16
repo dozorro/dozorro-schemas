@@ -1,0 +1,9 @@
+{
+  "author": {
+    "auth": {
+      "id": "a9d321893511524ad01db9b1259ab834",
+      "provider": "google",
+      "scheme": "external"
+    }
+  }
+}

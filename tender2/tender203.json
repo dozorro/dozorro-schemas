@@ -1,0 +1,79 @@
+{
+  "title": "Results report tender203",
+  "additionalProperties": false,
+  "properties": {
+    "author": {
+      "$ref": "#/definitions/author",
+      "description": "author schema described in comment model"
+    },
+    "formData": {
+      "additionalProperties": false,
+      "form": [
+        {
+          "title": "Report on the results",
+          "title_ru": "Отчет о результатах",
+          "title_uk": "Звіт про результати",
+          "type": "title"
+        },
+        {
+          "key": "resultCode",
+          "type": "hidden"
+        },
+        {
+          "key": "resultName",
+          "title": "Results",
+          "title_ru": "Полученный результат",
+          "title_uk": "Отриманий результат",
+          "type": "select"
+        },
+        {
+          "key": "resultComment",
+          "title": "Your commentarr",
+          "title_ru": "Ваш комментарий",
+          "title_uk": "Ваш коментар",
+          "type": "textarea"
+        }
+      ],
+      "properties": {
+        "resultCode": {
+          "description": "Result message code B001-B999",
+          "pattern": "^R[0-9]{3}$",
+          "type": "string"
+        },
+        "resultComment": {
+          "maxLength": 10000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "resultName": {
+          "maxLength": 100,
+          "minLength": 4,
+          "type": "string"
+        }
+      },
+      "required": [
+        "resultCode",
+        "resultName"
+      ],
+      "type": "object"
+    },
+    "parentForm": {
+      "reference": "form",
+      "referenceSchema": "tender201",
+      "pattern": "^[0-9a-f]{32}$",
+      "type": "string"
+    },
+    "tender": {
+      "pattern": "^[0-9a-f]{32}$",
+      "reference": "tender",
+      "type": "string"
+    }
+  },
+  "required": [
+    "author",
+    "tender",
+    "parentForm",
+    "formData"
+  ],
+  "type": "object"
+}

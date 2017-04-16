@@ -1,0 +1,29 @@
+{
+  "author": {
+    "auth": {
+      "id": "01db9b1259ab83421893511524a9d3ad",
+      "scheme": "internal"
+    },
+    "address": {
+      "countryName": "Ukraine",
+      "locality": "Boyarka",
+      "postalCode": "02125",
+      "region": "Kyivska Oblast",
+      "streetAddress": "Shevchenko avenue, 11, office 2"
+    },
+    "contactPoint": {
+      "email": "example@example.com",
+      "faxNumber": "5002052",
+      "name": "Andriy Shevchenko",
+      "telephone": "5002052",
+      "url": "http://yabluko.com.ua/"
+    },
+    "identifier": {
+      "id": "31055353",
+      "legalName": "PJSC KALYNA",
+      "scheme": "UA-EDR",
+      "uri": "https://usr.minjust.gov.ua/ua/freesearch?edrpou=31055353"
+    },
+    "name": "PJSC KALYNA"
+  }
+}

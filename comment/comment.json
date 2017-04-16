@@ -1,0 +1,208 @@
+{
+  "title": "Simple comment schema",
+  "description": "Comments submitted to tender forms",
+  "additionalProperties": false,
+  "definitions": {
+    "author": {
+      "additionalProperties": false,
+      "description": "Auth and Organization info: address, identifier, contactPoint",
+      "properties": {
+        "auth": {
+          "additionalProperties": false,
+          "description": "Autor Auth scheme (not schema) and user ID",
+          "properties": {
+            "id": {
+              "description": "Secure user ID, use HMAC(user.id) for visible and HMAC(user.id:tender.id) for anonymous",
+              "maxLength": 130,
+              "minLength": 10,
+              "pattern": "^[0-9A-Za-z+/=!*:@.-]{10,130}$",
+              "type": "string"
+            },
+            "provider": {
+              "description": "Provider name for external scheme (google, facebook)",
+              "maxLength": 80,
+              "minLength": 2,
+              "type": "string"
+            },
+            "scheme": {
+              "description": "Use `internal` for registered orgs, `external` for social auth",
+              "enum": [
+                "internal",
+                "external"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "scheme"
+          ],
+          "type": "object"
+        },
+        "address": {
+          "additionalProperties": false,
+          "description": "Address Schema http://api-docs.openprocurement.org/en/latest/standard/organization.html#address",
+          "properties": {
+            "countryName": {
+              "maxLength": 80,
+              "minLength": 2,
+              "type": "string"
+            },
+            "locality": {
+              "maxLength": 80,
+              "minLength": 2,
+              "type": "string"
+            },
+            "postalCode": {
+              "pattern": "^\\d{4,10}$",
+              "type": "string"
+            },
+            "region": {
+              "maxLength": 80,
+              "minLength": 2,
+              "type": "string"
+            },
+            "streetAddress": {
+              "maxLength": 250,
+              "minLength": 2,
+              "type": "string"
+            }
+          },
+          "required": [
+            "countryName",
+            "streetAddress"
+          ],
+          "type": "object"
+        },
+        "contactPoint": {
+          "additionalProperties": false,
+          "description": "ContactPoint Schema http://api-docs.openprocurement.org/en/latest/standard/organization.html#contactpoint",
+          "properties": {
+            "email": {
+              "maxLength": 254,
+              "minLength": 6,
+              "type": "string"
+            },
+            "faxNumber": {
+              "pattern": "^\\d{6,12}$",
+              "type": "string"
+            },
+            "name": {
+              "maxLength": 300,
+              "minLength": 2,
+              "type": "string"
+            },
+            "telephone": {
+              "pattern": "^\\d{6,12}$",
+              "type": "string"
+            },
+            "url": {
+              "maxLength": 250,
+              "minLength": 4,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "identifier": {
+          "additionalProperties": false,
+          "description": "Identifier Schema http://api-docs.openprocurement.org/en/latest/standard/organization.html#identifier",
+          "properties": {
+            "id": {
+              "maxLength": 80,
+              "minLength": 2,
+              "type": "string"
+            },
+            "legalName": {
+              "maxLength": 300,
+              "minLength": 2,
+              "type": "string"
+            },
+            "scheme": {
+              "maxLength": 10,
+              "minLength": 2,
+              "type": "string"
+            },
+            "uri": {
+              "maxLength": 250,
+              "minLength": 4,
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "scheme"
+          ],
+          "type": "object"
+        },
+        "name": {
+          "maxLength": 300,
+          "minLength": 2,
+          "type": "string"
+        },
+        "procuringEntityRelation": {
+          "description": "Optional only for replies from supervisor",
+          "enum": [
+            "commissioner",
+            "supervisor"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "auth"
+      ],
+      "title": "Autor schema",
+      "type": "object"
+    }
+  },
+  "form": [
+    {
+      "key": "comment",
+      "type": "textarea"
+    }
+  ],
+  "properties": {
+    "author": {
+      "$ref": "#/definitions/author",
+      "description": "author schema described in comment model"
+    },
+    "comment": {
+      "maxLength": 10000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "parentForm": {
+      "description": "Reference form id",
+      "pattern": "^[0-9a-f]{32}$",
+      "reference": "form",
+      "type": "string"
+    },
+    "replyTo": {
+      "description": "Reference comment id",
+      "pattern": "^[0-9a-f]{32}$",
+      "reference": "comment",
+      "type": "string"
+    },
+    "tender": {
+      "pattern": "^[0-9a-f]{32}$",
+      "reference": "tender",
+      "type": "string"
+    },
+    "update": {
+      "description": "Use this to update another comment (or form)",
+      "enum": [
+        "form",
+        "comment"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "author",
+    "comment",
+    "parentForm",
+    "tender"
+  ],
+  "type": "object"
+}

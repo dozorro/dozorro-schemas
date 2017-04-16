@@ -1,0 +1,17 @@
+{
+  "author": {
+    "auth": {
+      "id": "21893511524a9d3ad01db9b1259ab834",
+      "provider": "google",
+      "scheme": "external"
+    },
+    "name": "Alice Liddell"
+  },
+  "formData": {
+    "argumentativeDisqualification": "no",
+    "argumentativeDisqualificationComment": "Дискваліфікували без аргументів",
+    "cheapestWasDisqualified": "yes",
+    "cheapestWasDisqualifiedComment": "Дискваліфікували саму дешеву пропозицію"
+  },
+  "tender": "50d1d7be9ceb289caf0c21e56436c440"
+}
